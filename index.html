@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand_E-commerce</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Category toast container -->
+  <div class="cat-toast-container" id="catToastContainer"></div>
+  <div class="toast-container" id="toastContainer"></div>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-top">
+      <div class="logo" onclick="showPage('home')">
+        <img src="assets/assets/Layout/Brand/logo-colored.png" alt="Brand">
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search" id="searchInput">
+        <select id="categorySelect" onchange="handleCategoryChange()">
+          <option value="">All category</option>
+          <option value="electronics">Electronics</option>
+          <option value="clothing">Clothing</option>
+          <option value="mobile">Mobile</option>
+        </select>
+        <button class="search-btn" onclick="doSearch()">Search</button>
+      </div>
+      <div class="header-icons">
+        <div class="h-icon" onclick="showPage('home')">
+          <svg viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          Profile
+        </div>
+        <div class="h-icon">
+          <svg viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+          </svg>
+          Message
+        </div>
+        <div class="h-icon">
+          <svg viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+          Orders
+        </div>
+        <div class="h-icon" onclick="showPage('cart')">
+          <div class="cart-wrap">
+            <svg viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+
+          </div>
+          My cart
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Home -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-left">
+        <div class="nav-item" onclick="showPage('home')">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          All category
+        </div>
+        <div class="nav-item" onclick="showPage('mobile')">Hot offers</div>
+        <div class="nav-item" onclick="showPage('mobile')">Gift boxes</div>
+        <div class="nav-item">Projects</div>
+        <div class="nav-item" onclick="showPage('clothing')">Menu item</div>
+        <div class="nav-item">Help ▾</div>
+      </div>
+      <div class="nav-right">
+        <div class="flag-pill"><img src="assets/assets/Layout1/Image/flags/US@2x.png" alt=""> English, USD ▾</div>
+        <div class="flag-pill">Ship to <img src="assets/assets/Layout1/Image/flags/DE@2x.png" alt="DE"> ▾</div>
+      </div>
+    </div>
+  </nav>
+  <div id="page-home" class="page active">
+    <div class="wrap">
+      <div class="hero">
+        <!-- LEFT CATEGORIES -->
+        <div class="hero-cats">
+          <div class="hcat active" onclick="showPage('home')">Automobiles</div>
+          <div class="hcat" onclick="showPage('clothing')">Clothes and wear</div>
+          <div class="hcat" onclick="showPage('home')">Home interiors</div>
+          <div class="hcat" onclick="showPage('mobile')">Computer and tech</div>
+          <div class="hcat" onclick="showPage('mobile')">Tools, equipments</div>
+          <div class="hcat" onclick="showPage('home')">Sports and outdoor</div>
+          <div class="hcat" onclick="showPage('home')">Animal and pets</div>
+          <div class="hcat" onclick="showPage('home')">Machinery tools</div>
+          <div class="hcat-more" onclick="showPage('mobile')">More category</div>
+        </div>
+
+        <!-- CENTRE BANNER -->
+        <div class="hero-banner">
+          <img class="hero-banner-bg" src="assets/assets/Image/backgrounds/Banner-board-800x420 2.png" />
+          <div class="hero-banner-content">
+            <p>Latest trending</p>
+            <h2>Electronic<br>items</h2>
+            <button class="btn-learn">Learn more</button>
+          </div>
+        </div>
+
+        <!-- RIGHT LOGIN BOX -->
+        <div class="hero-right">
+          <div class="login-box">
+            <div class="login-greeting">
+              <strong>Hi, user</strong>
+              let's get started
+            </div>
+            <button class="btn-join" onclick="showPage('home')">Join now</button>
+            <button class="btn-login-link">Log in</button>
+          </div>
+          <div class="promo-box-orange">Get US $10 off<br>with a new<br>supplier</div>
+          <div class="promo-box-green">Send quotes with<br>supplier<br>preferences</div>
+        </div>
+      </div>
+      <!-- Categories box -->
+      <div class="cat-block">
+        <div class="cat-left" style="background:#f5ede0">
+          <img class="homepic" src="assets/assets/Image/backgrounds/Group 969.png" />
+          <h3>Home and<br>outdoor</h3>
+          <button class="btn-src" onclick="showPage('home')">Source now</button>
+        </div>
+        <div class="cat-grid">
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/interior/1.png','Soft chairs','$19.00')">
+            <img src="assets/assets/Image/interior/1.png" />
+            <div class="cat-cell-name">Soft chairs</div>
+            <div class="cat-cell-price">From USD 19</div>
+          </div>
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/interior/6.png','Sofa & chair','$19.00')">
+            <img src="assets/assets/Image/interior/6.png" />
+            <div class="cat-cell-name">Sofa &amp; chair</div>
+            <div class="cat-cell-price">From USD 19</div>
+          </div>
+          <div class="cat-cell"
+            onclick="openDetail('assets/assets/Image/interior/image 93.png','Kitchen dishes','$19.00')">
+            <img src="assets/assets/Image/interior/image 93.png" />
+            <div class="cat-cell-name">Kitchen dishes</div>
+            <div class="cat-cell-price">From USD 19</div>
+          </div>
+          <div class="cat-cell"
+            onclick="openDetail('assets/assets/Image/interior/3.png','Cooking Appliances','$19.00')">
+            <img src="assets/assets/Image/interior/3.png" />
+            <div class="cat-cell-name">Cooking Appliances</div>
+            <div class="cat-cell-price">From USD 19</div>
+          </div>
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/interior/8.png','Kitchen mixer','$100.00')">
+            <img src="assets/assets/Image/interior/8.png" />
+            <div class="cat-cell-name">Kitchen mixer</div>
+            <div class="cat-cell-price">From USD 100</div>
+          </div>
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/interior/9.png','Blenders','$39.00')">
+            <img src="assets/assets/Image/interior/9.png" />
+            <div class="cat-cell-name">Blenders</div>
+            <div class="cat-cell-price">From USD 39</div>
+          </div>
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/interior/7.png','Home appliance','$19.00')">
+            <img src="assets/assets/Image/interior/7.png" />
+            <div class="cat-cell-name">Home appliance</div>
+            <div class="cat-cell-price">From USD 19</div>
+          </div>
+          <div class="cat-cell"
+            onclick="openDetail('assets/assets/Image/interior/image 89.png','Coffee maker','$10.00')">
+            <img src="assets/assets/Image/interior/image 89.png" />
+            <div class="cat-cell-name">Coffee maker</div>
+            <div class="cat-cell-price">From USD 10</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-left" style="background:#f0f0ff">
+          <img class="consumerpic" src="assets/assets/Image/backgrounds/image 98.png" />
+          <h3>Consumer<br>electronics<br>and gadgets</h3>
+          <button class="btn-src" onclick="showPage('mobile')">Source now</button>
+        </div>
+        <div class="cat-grid">
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/tech/8.png','Smart watches','$19.00')">
+            <img src="assets/assets/Image/tech/8.png" />
+            <div class="cat-cell-name">Smart watches</div>
+            <div class="cat-cell-price">From USD 19</div>
+          </div>
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/tech/6.png','Cameras','$89.00')">
+            <img src="assets/assets/Image/tech/6.png" />
+            <div class="cat-cell-name">Cameras</div>
+            <div class="cat-cell-price">From USD 89</div>
+          </div>
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/tech/image 86.png','Headphones','$10.00')">
+            <img src="assets/assets/Image/tech/image 86.png" />
+            <div class="cat-cell-name">Headphones</div>
+            <div class="cat-cell-price">From USD 10</div>
+          </div>
+          <div class="cat-cell"
+            onclick="openDetail('assets/assets/Image/tech/image 85.png','Electric Kettle','$90.00')">
+            <img src="assets/assets/Image/tech/image 85.png" />
+            <div class="cat-cell-name">Electric Kattle</div>
+            <div class="cat-cell-price">From USD 90</div>
+          </div>
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/tech/image 29.png','Gaming set','$35.00')">
+            <img src="assets/assets/Image/tech/image 29.png" />
+            <div class="cat-cell-name">Gaming set</div>
+            <div class="cat-cell-price">From USD 35</div>
+          </div>
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/tech/image 34.png','Laptops & PC','$340.00')">
+            <img src="assets/assets/Image/tech/image 34.png" />
+            <div class="cat-cell-name">Laptops &amp; PC</div>
+            <div class="cat-cell-price">From USD 340</div>
+          </div>
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/tech/image 32.png','Tablets','$19.00')">
+            <img src="assets/assets/Image/tech/image 32.png" />
+            <div class="cat-cell-name">Tablets</div>
+            <div class="cat-cell-price">From USD 19</div>
+          </div>
+          <div class="cat-cell" onclick="openDetail('assets/assets/Image/tech/image 33.png','Smart Phones','$240.00')">
+            <img src="assets/assets/Image/tech/image 33.png" />
+            <div class="cat-cell-name">Smart Phones</div>
+            <div class="cat-cell-price">From USD 240</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-wrap">
+        <div class="quote-left">
+          <img class="quote-bg" src="assets/assets/Image/backgrounds/Group 982.png" />
+          <div class="quote-text">
+            <h2>An easy way to send<br>requests to all suppliers</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+          </div>
+        </div>
+        <div class="quote-right">
+          <h3>Send quote to suppliers</h3>
+          <div class="qform">
+            <label>What item do you need?</label>
+            <textarea placeholder="Type more details"></textarea>
+            <div class="qform-row">
+              <input type="number" placeholder="Quantity">
+              <select>
+                <option>Pcs</option>
+                <option>Box</option>
+                <option>Set</option>
+              </select>
+            </div>
+            <button class="btn-inquiry-send">Send inquiry</button>
+          </div>
+        </div>
+      </div>
+      <div class="scard">
+        <div class="scard-header">
+          <div class="scard-title">Recommended items</div>
+        </div>
+        <div class="rec-grid">
+          <div class="rec-card"
+            onclick="openDetail('assets/assets/Layout/alibaba/Image/cloth/Bitmap.png','T-shirts with multiple colors, for men','$10.30')">
+            <img src="assets/assets/Layout/alibaba/Image/cloth/Bitmap.png" alt="">
+            <div class="rec-info">
+              <div class="rec-price">$10.30</div>
+              <div class="rec-name">T-shirts with multiple colors, for men</div>
+            </div>
+          </div>
+          <div class="rec-card"
+            onclick="openDetail('assets/assets/Layout/alibaba/Image/cloth/Bitmap (2).png','Jeans shorts for men blue color','$10.30')">
+            <img src="assets/assets/Layout/alibaba/Image/cloth/Bitmap (2).png" alt="">
+            <div class="rec-info">
+              <div class="rec-price">$10.30</div>
+              <div class="rec-name">Jeans shorts for men blue color</div>
+            </div>
+          </div>
+          <div class="rec-card"
+            onclick="openDetail('assets/assets/Layout/alibaba/Image/cloth/2 1.png','Brown winter coat medium size','$12.50')">
+            <img src="assets/assets/Layout/alibaba/Image/cloth/2 1.png" alt="">
+            <div class="rec-info">
+              <div class="rec-price">$12.50</div>
+              <div class="rec-name">Brown winter coat medium size</div>
+            </div>
+          </div>
+          <div class="rec-card"
+            onclick="openDetail('assets/assets/Layout/alibaba/Image/cloth/image 26.png','Jeans bag for travel for men','$34.00')">
+            <img src="assets/assets/Layout/alibaba/Image/cloth/image 26.png" alt="">
+            <div class="rec-info">
+              <div class="rec-price">$34.00</div>
+              <div class="rec-name">Jeans bag for travel for men</div>
+            </div>
+          </div>
+          <div class="rec-card"
+            onclick="openDetail('assets/assets/Layout/alibaba/Image/cloth/image 24.png','Leather wallet','$99.00')"><img
+              src="assets/assets/Layout/alibaba/Image/cloth/image 24.png" alt="">
+            <div class="rec-info">
+              <div class="rec-price">$99.00</div>
+              <div class="rec-name">Leather wallet</div>
+            </div>
+          </div>
+          <div class="rec-card"
+            onclick="openDetail('assets/assets/Image/tech/6.png','Canon camera black, 100x zoom','$9.99')"><img
+              src="assets/assets/Image/tech/6.png" alt="">
+            <div class="rec-info">
+              <div class="rec-price">$9.99</div>
+              <div class="rec-name">Canon camera black, 100x zoom</div>
+            </div>
+          </div>
+          <div class="rec-card"
+            onclick="openDetail('assets/assets/Image/tech/image 29.png','Headset for gaming with mic','$8.99')"><img
+              src="assets/assets/Image/tech/image 29.png" alt="">
+            <div class="rec-info">
+              <div class="rec-price">$8.99</div>
+              <div class="rec-name">Headset for gaming with mic</div>
+            </div>
+          </div>
+          <div class="rec-card"
+            onclick="openDetail('assets/assets/Image/tech/8.png','Smartwatch silver color modern','$10.30')"><img
+              src="assets/assets/Image/tech/8.png" alt="">
+            <div class="rec-info">
+              <div class="rec-price">$10.30</div>
+              <div class="rec-name">Smartwatch silver color modern</div>
+            </div>
+          </div>
+          <div class="rec-card"
+            onclick="openDetail('assets/assets/Image/interior/3.png','Cooking Appliances','$10.30')"><img
+              src="assets/assets/Image/interior/3.png" alt="">
+            <div class="rec-info">
+              <div class="rec-price">$10.30</div>
+              <div class="rec-name">Cooking Appliances</div>
+            </div>
+          </div>
+          <div class="rec-card"
+            onclick="openDetail('assets/assets/Layout/alibaba/Image/tech/image 85.png','Electric Kettle for Kitchen','$80.95')">
+            <img src="assets/assets/Layout/alibaba/Image/tech/image 85.png" alt="">
+            <div class="rec-info">
+              <div class="rec-price">$80.95</div>
+              <div class="rec-name">Electric Kattle for Kitchen Appliances</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scard">
+        <div class="scard-header">
+          <div class="scard-title">Our extra services</div>
+        </div>
+        <div class="srv-grid">
+          <div class="srv-card"><img src="assets/assets/Image/backgrounds/Mask group.png" alt="">
+            <div class="srv-name">Source from Industry Hubs</div>
+          </div>
+          <div class="srv-card"><img src="assets/assets/Image/backgrounds/Mask group (1).png" alt="">
+            <div class="srv-name">Customize Your Products</div>
+          </div>
+          <div class="srv-card"><img src="assets/assets/Image/backgrounds/image 106.png" alt="">
+            <div class="srv-name">Fast, reliable shipping by ocean or air</div>
+          </div>
+          <div class="srv-card"><img src="assets/assets/Image/backgrounds/image 107.png" alt="">
+            <div class="srv-name">Product monitoring and inspection</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scard">
+        <div class="scard-header">
+          <div class="scard-title">Suppliers by region</div>
+        </div>
+        <div class="sup-grid">
+          <div class="sup-row"><img src="assets/assets/Layout1/Image/flags/AE@2x.png" alt="">
+            <div>
+              <div class="sup-row-name">Arabic Emirates</div>
+              <div class="sup-row-url">shopname.ae</div>
+            </div>
+          </div>
+          <div class="sup-row"><img src="assets/assets/Layout1/Image/flags/icon.png" alt="">
+            <div>
+              <div class="sup-row-name">Australia</div>
+              <div class="sup-row-url">shopname.com.au</div>
+            </div>
+          </div>
+          <div class="sup-row"><img src="assets/assets/Layout1/Image/flags/US@2x.png" alt="">
+            <div>
+              <div class="sup-row-name">United States</div>
+              <div class="sup-row-url">shopname.us</div>
+            </div>
+          </div>
+          <div class="sup-row"><img src="assets/assets/Layout1/Image/flags/RU@2x.png" alt="">
+            <div>
+              <div class="sup-row-name">Russia</div>
+              <div class="sup-row-url">shopname.ru</div>
+            </div>
+          </div>
+          <div class="sup-row"><img src="assets/assets/Layout1/Image/flags/IT@2x.png" alt="">
+            <div>
+              <div class="sup-row-name">Italy</div>
+              <div class="sup-row-url">shopname.it</div>
+            </div>
+          </div>
+          <div class="sup-row"><img src="assets/assets/Layout1/Image/flags/GB@2x.png" alt="">
+            <div>
+              <div class="sup-row-name">Great Britain</div>
+              <div class="sup-row-url">shopname.co.uk</div>
+            </div>
+          </div>
+          <div class="sup-row"><img src="assets/assets/Layout1/Image/flags/FR@2x.png" alt="">
+            <div>
+              <div class="sup-row-name">France</div>
+              <div class="sup-row-url">shopname.com.fr</div>
+            </div>
+          </div>
+          <div class="sup-row"><img src="assets/assets/Layout1/Image/flags/CN@2x.png" alt="">
+            <div>
+              <div class="sup-row-name">China</div>
+              <div class="sup-row-url">shopname.cn</div>
+            </div>
+          </div>
+          <div class="sup-row"><img src="assets/assets/Layout1/Image/flags/DK@2x.png" alt="">
+            <div>
+              <div class="sup-row-name">Denmark</div>
+              <div class="sup-row-url">Denmark.com.dk</div>
+            </div>
+          </div>
+          <div class="sup-row"><img src="assets/assets/Layout1/Image/flags/DE@2x.png" alt="">
+            <div>
+              <div class="sup-row-name">Germany</div>
+              <div class="sup-row-url">shopname.de</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Newsletter -->
+      <div class="newsletter" style="margin-top:20px">
+        <h3>Subscribe on our newsletter</h3>
+        <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+        <div class="nl-form"><input type="email" placeholder="✉ Email"><button>Subscribe</button></div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <div class="logo" onclick="showPage('home')" style="margin-bottom:10px"><img
+              src="assets/assets/Layout/Brand/logo-colored.png" alt="Brand" style="height:30px"></div>
+          <p>Best information about the company gies here but now lorem ipsum is</p>
+          <div class="ft-socials">
+            <div class="ft-soc">f</div>
+            <div class="ft-soc">t</div>
+            <div class="ft-soc">in</div>
+            <div class="ft-soc">◉</div>
+            <div class="ft-soc">▶</div>
+          </div>
+        </div>
+        <div class="ft-col">
+          <h4>About</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Partnership</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Information</h4><a>Help Center</a><a>Money Refund</a><a>Shipping</a><a>Contact us</a>
+        </div>
+        <div class="ft-col">
+          <h4>For users</h4><a>Login</a><a>Register</a><a>Settings</a><a>My Orders</a>
+        </div>
+        <div class="ft-col">
+          <h4>Get app</h4>
+          <img class="one" src="assets/assets/Layout/Misc/market-button.png" alt="">
+          <img class="two" src="assets/assets/Layout/Misc/Group.png" alt="">
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2023 Ecommerce.</span>
+        <div style="display:flex;align-items:center;gap:6px"><img src="assets/assets/Layout1/Image/flags/US@2x.png"
+            alt="" style="height:13px"> English ▲</div>
+      </div>
+    </footer>
+  </div>
+  <!-- Mobile -->
+  <div id="page-mobile" class="page">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <span class="bc-link" onclick="showPage('home')">Home</span><span class="bc-sep">›</span>
+        <span class="bc-link" onclick="showPage('home')">Clothings</span><span class="bc-sep">›</span>
+        <span class="bc-link" onclick="showPage('home')">Men's wear</span><span class="bc-sep">›</span>
+        Mobile accessory
+      </div>
+      <div class="listing-layout">
+
+        <aside class="sidebar">
+          <div class="sb-sec">
+            <div class="sb-title">Category <span>∧</span></div>
+            <div class="sb-item" onclick="showPage('mobile')">Mobile accessory</div>
+            <div class="sb-item" onclick="showPage('mobile')">Electronics</div>
+            <div class="sb-item" onclick="showPage('mobile')">Smartphones</div>
+            <div class="sb-item" onclick="showPage('mobile')">Modern tech</div>
+            <a class="see-all-l">See all</a>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Brands <span>∧</span></div>
+            <label class="sb-item"><input type="checkbox" checked> Samsung</label>
+            <label class="sb-item"><input type="checkbox" checked> Apple</label>
+            <label class="sb-item"><input type="checkbox"> Huawei</label>
+            <label class="sb-item"><input type="checkbox" checked> Pocco</label>
+            <label class="sb-item"><input type="checkbox"> Lenovo</label>
+            <a class="see-all-l">See all</a>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Features <span>∧</span></div>
+            <label class="sb-item"><input type="checkbox" checked> Metallic</label>
+            <label class="sb-item"><input type="checkbox"> Plastic cover</label>
+            <label class="sb-item"><input type="checkbox"> 8GB Ram</label>
+            <label class="sb-item"><input type="checkbox"> Super power</label>
+            <label class="sb-item"><input type="checkbox"> Large Memory</label>
+            <a class="see-all-l">See all</a>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Price range <span>∧</span></div>
+            <div class="pr-range">
+              <input type="range" min="0" max="999999" value="500000">
+              <div class="pr-inputs"><input type="number" placeholder="Min" value="0"><input type="number"
+                  placeholder="Max" value="999999"></div>
+              <button class="btn-pr-apply">Apply</button>
+            </div>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Condition <span>∧</span></div>
+            <label class="sb-item"><input type="radio" name="cond" checked> Any</label>
+            <label class="sb-item"><input type="radio" name="cond"> Refurbished</label>
+            <label class="sb-item"><input type="radio" name="cond"> Brand new</label>
+            <label class="sb-item"><input type="radio" name="cond"> Old items</label>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Ratings <span>∧</span></div>
+            <label class="sb-item"><input type="checkbox"> ★★★★★</label>
+            <label class="sb-item"><input type="checkbox"> ★★★★☆</label>
+            <label class="sb-item"><input type="checkbox"> ★★★☆☆</label>
+            <label class="sb-item"><input type="checkbox"> ★★☆☆☆</label>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Manufacturer <span>∨</span></div>
+          </div>
+        </aside>
+
+        <div>
+          <div class="listing-head">
+            <div class="l-count"><strong>12,911 items</strong> in Mobile accessory</div>
+            <label class="ver-check"><input type="checkbox"> Verified only</label>
+            <select class="sort-sel">
+              <option>Featured</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+            </select>
+            <div class="vbtns">
+              <div class="vbtn on" onclick="showPage('mobile')" title="Grid">⊞</div>
+              <div class="vbtn " onclick="showPage('list')" title="List">≡</div>
+            </div>
+          </div>
+
+          <div class="active-filters">
+            <span class="ftag">Samsung <button>×</button></span>
+            <span class="ftag">Apple <button>×</button></span>
+            <span class="ftag">Poco <button>×</button></span>
+            <span class="ftag">Metallic <button>×</button></span>
+            <span class="ftag">4 star <button>×</button></span>
+            <span class="ftag">3 star <button>×</button></span>
+            <span class="clr-all">Clear all filter</span>
+          </div>
+          <div style="display:block">
+            <div class="prod-grid">
+              <div class="prod-card"
+                onclick="openDetail('assets/assets/Image/tech/6.png','GoPro HERO6 4K Action Camera - Black','$99.50')">
+                <div class="wbtn">♡</div><img src="assets/assets/Image/tech/6.png" alt="">
+                <div class="prod-info">
+                  <div class="p-oldprice">$1128.00</div>
+                  <div class="p-price">$99.50</div>
+                  <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">7.5</span></div>
+                  <div class="p-name">GoPro HERO6 4K Action Camera - Black</div>
+                </div>
+              </div>
+              <div class="prod-card"
+                onclick="openDetail('assets/assets/Image/tech/8.png','Smart Watch with leather belt - Black','$60.50')">
+                <div class="wbtn">♡</div><img src="assets/assets/Image/tech/8.png" alt="">
+                <div class="prod-info">
+                  <div class="p-oldprice">$1128.00</div>
+                  <div class="p-price">$60.50</div>
+                  <div class="p-stars">★★★<span style="color:#ddd">★★</span><span class="sc">5.9</span></div>
+                  <div class="p-name">Smart Watch with leather belt - Black</div>
+                </div>
+              </div>
+              <div class="prod-card"
+                onclick="openDetail('assets/assets/Image/tech/image 86.png','Headphones - Grey','$89.50')">
+                <div class="wbtn">♡</div><img src="assets/assets/Image/tech/image 86.png" alt="">
+                <div class="prod-info">
+                  <div class="p-price">$89.50</div>
+                  <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">7.5</span></div>
+                  <div class="p-name">Headphones - Grey</div>
+                </div>
+              </div>
+              <div class="prod-card"
+                onclick="openDetail('assets/assets/Image/tech/image 23.png','Android Phone High Quality - Black','$900.50')">
+                <div class="wbtn">♡</div><img src="assets/assets/Image/tech/image 23.png" alt="">
+                <div class="prod-info">
+                  <div class="p-oldprice">$1128.00</div>
+                  <div class="p-price">$900.50</div>
+                  <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">7.5</span></div>
+                  <div class="p-name">Android Phone High Quality - Black</div>
+                </div>
+              </div>
+              <div class="prod-card"
+                onclick="openDetail('assets/assets/Image/tech/image 34.png','MacBook - Black','$990.50')">
+                <div class="wbtn">♡</div><img src="assets/assets/Image/tech/image 34.png" alt="">
+                <div class="prod-info">
+                  <div class="p-oldprice">$1128.00</div>
+                  <div class="p-price">$990.50</div>
+                  <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">7.5</span></div>
+                  <div class="p-name">MacBook - Black</div>
+                </div>
+              </div>
+              <div class="prod-card"
+                onclick="openDetail('assets/assets/Image/tech/image 32.png','Tablets - Grey','$99.50')">
+                <div class="wbtn">♡</div><img src="assets/assets/Image/tech/image 32.png" alt="">
+                <div class="prod-info">
+                  <div class="p-oldprice">$112.00</div>
+                  <div class="p-price">$99.50</div>
+                  <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">7.5</span></div>
+                  <div class="p-name">Tablets - Grey</div>
+                </div>
+              </div>
+              <div class="prod-card"
+                onclick="openDetail('assets/assets/Image/tech/image 29.png','Gaming Headset - Black and blue','$99.50')">
+                <div class="wbtn">♡</div><img src="assets/assets/Image/tech/image 29.png" alt="">
+                <div class="prod-info">
+                  <div class="p-oldprice">$1128.00</div>
+                  <div class="p-price">$99.50</div>
+                  <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">7.5</span></div>
+                  <div class="p-name">Gaming Headset - Black and blue</div>
+                </div>
+              </div>
+              <div class="prod-card"
+                onclick="openDetail('assets/assets/Image/tech/image 33.png','Iphone 12 pro - Red','$99.50')">
+                <div class="wbtn">♡</div><img src="assets/assets/Image/tech/image 33.png" alt="">
+                <div class="prod-info">
+                  <div class="p-oldprice">$1128.00</div>
+                  <div class="p-price">$99.50</div>
+                  <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">7.5</span></div>
+                  <div class="p-name">Iphone 12 pro - Red</div>
+                </div>
+              </div>
+              <div class="prod-card"
+                onclick="openDetail('assets/assets/Image/tech/image 85.png','Electric Kettle - Black','$99.50')">
+                <div class="wbtn">♡</div><img src="assets/assets/Image/tech/image 85.png" alt="">
+                <div class="prod-info">
+                  <div class="p-oldprice">$1128.00</div>
+                  <div class="p-price">$99.50</div>
+                  <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">7.5</span></div>
+                  <div class="p-name">Electric Kettle - Black</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pagination">
+            <div class="pgshow">Show <select>
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+              </select></div>
+            <div class="pgbtn">‹</div>
+            <div class="pgbtn on">1</div>
+            <div class="pgbtn">2</div>
+            <div class="pgbtn">3</div>
+            <div class="pgbtn">›</div>
+          </div>
+        </div>
+      </div>
+      <div class="newsletter" style="margin-top:20px">
+        <h3>Subscribe on our newsletter</h3>
+        <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+        <div class="nl-form"><input type="email" placeholder="✉ Email"><button>Subscribe</button></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <div class="logo" onclick="showPage('home')" style="margin-bottom:10px"><img
+              src="assets/assets/Layout/Brand/logo-colored.png" alt="Brand" style="height:30px"></div>
+          <p>Best information about the company gies here but now lorem ipsum is</p>
+          <div class="ft-socials">
+            <div class="ft-soc">f</div>
+            <div class="ft-soc">t</div>
+            <div class="ft-soc">in</div>
+            <div class="ft-soc">◉</div>
+            <div class="ft-soc">▶</div>
+          </div>
+        </div>
+        <div class="ft-col">
+          <h4>About</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Partnership</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Information</h4><a>Help Center</a><a>Money Refund</a><a>Shipping</a><a>Contact us</a>
+        </div>
+        <div class="ft-col">
+          <h4>For users</h4><a>Login</a><a>Register</a><a>Settings</a><a>My Orders</a>
+        </div>
+        <div class="ft-col">
+          <h4>Get app</h4>
+          <div><img src="assets/assets/Layout/Misc/market-button.png" /></div>
+          <div><img src="assets/assets/Layout/Misc/Group.png" /></div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2023 Ecommerce.</span>
+          <div style="display:flex;align-items:center;gap:6px"><img src="assets/assets/Layout1/Image/flags/US@2x.png"
+              alt="" style="height:13px"> English ▲</div>
+        </div>
+    </footer>
+
+  </div>
+  <!-- Clothing -->
+  <div id="page-clothing" class="page">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <span class="bc-link" onclick="showPage('home')">Home</span><span class="bc-sep">›</span>
+        <span class="bc-link" onclick="showPage('home')">Clothings</span><span class="bc-sep">›</span>
+        Clothing &amp; Apparel
+      </div>
+      <div class="listing-layout">
+
+        <aside class="sidebar">
+          <div class="sb-sec">
+            <div class="sb-title">Category <span>∧</span></div>
+            <div class="sb-item" onclick="showPage('mobile')">Mobile accessory</div>
+            <div class="sb-item" onclick="showPage('mobile')">Electronics</div>
+            <div class="sb-item" onclick="showPage('mobile')">Smartphones</div>
+            <div class="sb-item" onclick="showPage('mobile')">Modern tech</div>
+            <a class="see-all-l">See all</a>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Brands <span>∧</span></div>
+            <label class="sb-item"><input type="checkbox" checked> Samsung</label>
+            <label class="sb-item"><input type="checkbox" checked> Apple</label>
+            <label class="sb-item"><input type="checkbox"> Huawei</label>
+            <label class="sb-item"><input type="checkbox" checked> Pocco</label>
+            <label class="sb-item"><input type="checkbox"> Lenovo</label>
+            <a class="see-all-l">See all</a>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Features <span>∧</span></div>
+            <label class="sb-item"><input type="checkbox" checked> Metallic</label>
+            <label class="sb-item"><input type="checkbox"> Plastic cover</label>
+            <label class="sb-item"><input type="checkbox"> 8GB Ram</label>
+            <label class="sb-item"><input type="checkbox"> Super power</label>
+            <label class="sb-item"><input type="checkbox"> Large Memory</label>
+            <a class="see-all-l">See all</a>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Price range <span>∧</span></div>
+            <div class="pr-range">
+              <input type="range" min="0" max="999999" value="500000">
+              <div class="pr-inputs"><input type="number" placeholder="Min" value="0"><input type="number"
+                  placeholder="Max" value="999999"></div>
+              <button class="btn-pr-apply">Apply</button>
+            </div>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Condition <span>∧</span></div>
+            <label class="sb-item"><input type="radio" name="cond" checked> Any</label>
+            <label class="sb-item"><input type="radio" name="cond"> Refurbished</label>
+            <label class="sb-item"><input type="radio" name="cond"> Brand new</label>
+            <label class="sb-item"><input type="radio" name="cond"> Old items</label>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Ratings <span>∧</span></div>
+            <label class="sb-item"><input type="checkbox"> ★★★★★</label>
+            <label class="sb-item"><input type="checkbox"> ★★★★☆</label>
+            <label class="sb-item"><input type="checkbox"> ★★★☆☆</label>
+            <label class="sb-item"><input type="checkbox"> ★★☆☆☆</label>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Manufacturer <span>∨</span></div>
+          </div>
+        </aside>
+        <!-- Listing -->
+        <div>
+          <div class="listing-head">
+            <div class="l-count"><strong>8,241 items</strong> in Clothing &amp; Apparel</div>
+            <label class="ver-check"><input type="checkbox"> Verified only</label>
+            <select class="sort-sel">
+              <option>Featured</option>
+              <option>Price: Low to High</option>
+            </select>
+            <div class="vbtns">
+              <div class="vbtn on" title="Grid">⊞</div>
+              <div class="vbtn" onclick="showPage('list')" title="List">≡</div>
+            </div>
+          </div>
+          <div class="active-filters">
+            <span class="ftag">Men <button>×</button></span>
+            <span class="ftag">Women <button>×</button></span>
+            <span class="ftag">Cotton <button>×</button></span>
+            <span class="clr-all">Clear all filter</span>
+          </div>
+          <div class="prod-grid">
+            <div class="prod-card" onclick="showPage('detail')">
+              <div class="wbtn">♡</div><img src="assets/assets/Layout/alibaba/Image/cloth/Bitmap.png" alt="">
+              <div class="prod-info">
+                <div class="p-price">$10.30</div>
+                <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">8.1</span></div>
+                <div class="p-name">T-shirts with multiple colors, for men</div>
+              </div>
+            </div>
+            <div class="prod-card" onclick="showPage('detail')">
+              <div class="wbtn">♡</div><img src="assets/assets/Layout/alibaba/Image/cloth/Bitmap (2).png" alt="">
+              <div class="prod-info">
+                <div class="p-price">$10.30</div>
+                <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">7.9</span></div>
+                <div class="p-name">Jeans shorts for men blue color</div>
+              </div>
+            </div>
+            <div class="prod-card" onclick="showPage('detail')">
+              <div class="wbtn">♡</div><img src="assets/assets/Layout/alibaba/Image/cloth/2 1.png" alt="">
+              <div class="prod-info">
+                <div class="p-price">$12.50</div>
+                <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">8.3</span></div>
+                <div class="p-name">Brown winter coat medium size</div>
+              </div>
+            </div>
+            <div class="prod-card" onclick="showPage('detail')">
+              <div class="wbtn">♡</div><img src="assets/assets/Layout/alibaba/Image/cloth/image 26.png" alt="">
+              <div class="prod-info">
+                <div class="p-price">$34.00</div>
+                <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">7.5</span></div>
+                <div class="p-name">Jeans bag for travel for men</div>
+              </div>
+            </div>
+            <div class="prod-card" onclick="showPage('detail')">
+              <div class="wbtn">♡</div><img src="assets/assets/Layout/alibaba/Image/cloth/image 24.png" alt="">
+              <div class="prod-info">
+                <div class="p-price">$99.00</div>
+                <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">8.0</span></div>
+                <div class="p-name">Leather wallet premium quality</div>
+              </div>
+            </div>
+            <div class="prod-card" onclick="showPage('detail')">
+              <div class="wbtn">♡</div><img src="assets/assets/Layout/alibaba/Image/cloth/image 30.png" alt="">
+              <div class="prod-info">
+                <div class="p-price">$9.99</div>
+                <div class="p-stars">★★★★<span style="color:#ddd">★</span><span class="sc">7.8</span></div>
+                <div class="p-name">Casual coat mens slim fit</div>
+              </div>
+            </div>
+          </div>
+          <div class="pagination">
+            <div class="pgshow">Show <select>
+                <option>10</option>
+                <option>20</option>
+              </select></div>
+            <div class="pgbtn">‹</div>
+            <div class="pgbtn on">1</div>
+            <div class="pgbtn">2</div>
+            <div class="pgbtn">3</div>
+            <div class="pgbtn">›</div>
+          </div>
+        </div>
+      </div>
+      <div class="newsletter" style="margin-top:20px">
+        <h3>Subscribe on our newsletter</h3>
+        <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+        <div class="nl-form"><input type="email" placeholder="✉ Email"><button>Subscribe</button></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <div class="logo" onclick="showPage('home')" style="margin-bottom:10px"><img
+              src="assets/assets/Layout/Brand/logo-colored.png" alt="Brand" style="height:30px"></div>
+          <p>Best information about the company gies here but now lorem ipsum is</p>
+          <div class="ft-socials">
+            <div class="ft-soc">f</div>
+            <div class="ft-soc">t</div>
+            <div class="ft-soc">in</div>
+            <div class="ft-soc">◉</div>
+            <div class="ft-soc">▶</div>
+          </div>
+        </div>
+        <div class="ft-col">
+          <h4>About</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Partnership</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Information</h4><a>Help Center</a><a>Money Refund</a><a>Shipping</a><a>Contact us</a>
+        </div>
+        <div class="ft-col">
+          <h4>For users</h4><a>Login</a><a>Register</a><a>Settings</a><a>My Orders</a>
+        </div>
+        <div class="ft-col">
+          <h4>Get app</h4>
+          <img class="one" src="assets/assets/Layout/Misc/market-button.png" alt="">
+          <img class="two" src="assets/assets/Layout/Misc/Group.png" alt="">
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2023 Ecommerce.</span>
+        <div style="display:flex;align-items:center;gap:6px"><img src="assets/assets/Layout1/Image/flags/US@2x.png"
+            alt="" style="height:13px"> English ▲</div>
+      </div>
+    </footer>
+
+  </div>
+  <div id="page-list" class="page">
+    <div class="wrap">
+      <div class="breadcrumb"><span class="bc-link" onclick="showPage('home')">Home</span><span
+          class="bc-sep">›</span><span class="bc-link" onclick="showPage('home')">Clothings</span><span
+          class="bc-sep">›</span><span class="bc-link" onclick="showPage('home')">Men's wear</span><span
+          class="bc-sep">›</span> Summer clothing</div>
+      <div class="listing-layout">
+
+        <aside class="sidebar">
+          <div class="sb-sec">
+            <div class="sb-title">Category <span>∧</span></div>
+            <div class="sb-item" onclick="showPage('mobile')">Mobile accessory</div>
+            <div class="sb-item" onclick="showPage('mobile')">Electronics</div>
+            <div class="sb-item" onclick="showPage('mobile')">Smartphones</div>
+            <div class="sb-item" onclick="showPage('mobile')">Modern tech</div>
+            <a class="see-all-l">See all</a>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Brands <span>∧</span></div>
+            <label class="sb-item"><input type="checkbox" checked> Samsung</label>
+            <label class="sb-item"><input type="checkbox" checked> Apple</label>
+            <label class="sb-item"><input type="checkbox"> Huawei</label>
+            <label class="sb-item"><input type="checkbox" checked> Pocco</label>
+            <label class="sb-item"><input type="checkbox"> Lenovo</label>
+            <a class="see-all-l">See all</a>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Features <span>∧</span></div>
+            <label class="sb-item"><input type="checkbox" checked> Metallic</label>
+            <label class="sb-item"><input type="checkbox"> Plastic cover</label>
+            <label class="sb-item"><input type="checkbox"> 8GB Ram</label>
+            <label class="sb-item"><input type="checkbox"> Super power</label>
+            <label class="sb-item"><input type="checkbox"> Large Memory</label>
+            <a class="see-all-l">See all</a>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Price range <span>∧</span></div>
+            <div class="pr-range">
+              <input type="range" min="0" max="999999" value="500000">
+              <div class="pr-inputs"><input type="number" placeholder="Min" value="0"><input type="number"
+                  placeholder="Max" value="999999"></div>
+              <button class="btn-pr-apply">Apply</button>
+            </div>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Condition <span>∧</span></div>
+            <label class="sb-item"><input type="radio" name="cond" checked> Any</label>
+            <label class="sb-item"><input type="radio" name="cond"> Refurbished</label>
+            <label class="sb-item"><input type="radio" name="cond"> Brand new</label>
+            <label class="sb-item"><input type="radio" name="cond"> Old items</label>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Ratings <span>∧</span></div>
+            <label class="sb-item"><input type="checkbox"> ★★★★★</label>
+            <label class="sb-item"><input type="checkbox"> ★★★★☆</label>
+            <label class="sb-item"><input type="checkbox"> ★★★☆☆</label>
+            <label class="sb-item"><input type="checkbox"> ★★☆☆☆</label>
+          </div>
+          <div class="sb-sec">
+            <div class="sb-title">Manufacturer <span>∨</span></div>
+          </div>
+        </aside>
+
+        <div>
+          <div class="listing-head">
+            <div class="l-count"><strong>12,911 items</strong> in Mobile accessory</div>
+            <label class="ver-check"><input type="checkbox" checked> Verified only</label>
+            <select class="sort-sel">
+              <option>Featured</option>
+              <option>Price: Low to High</option>
+            </select>
+            <div class="vbtns">
+              <div class="vbtn" onclick="showPage('mobile')" title="Grid">⊞</div>
+              <div class="vbtn on" onclick="showPage('mobile')" title="List">≡</div>
+            </div>
+          </div>
+          <div class="prod-list">
+            <div class="plist-item" onclick="showPage('detail')"><img src="assets/assets/Image/tech/6.png" alt="">
+              <div>
+                <div class="pl-title">Canon Camera EOS 2000, Black 10x zoom</div>
+                <div class="pl-meta"><span class="p-stars" style="font-size:12px">★★★★<span style="color:#ddd">★</span>
+                    7.5</span><span>• 154 orders</span><span class="pl-free">• Free Shipping</span></div>
+                <div class="pl-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua</div><span class="pl-link">View details</span>
+              </div>
+              <div class="pl-price">
+                <div class="p-oldprice">$1128.00</div>
+                <div class="p-price">$998.00</div>
+              </div>
+              <div class="wbtn" style="position:static;margin-left:4px">♡</div>
+            </div>
+            <div class="plist-item" onclick="showPage('detail')"><img src="assets/assets/Image/tech/8.png" alt="">
+              <div>
+                <div class="pl-title">Smart watch with Leather belt- Grey</div>
+                <div class="pl-meta"><span class="p-stars" style="font-size:12px">★★★★<span style="color:#ddd">★</span>
+                    7.5</span><span>• 154 orders</span><span class="pl-free">• Free Shipping</span></div>
+                <div class="pl-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                  ex ea commodo consequat.</div><span class="pl-link">View details</span>
+              </div>
+              <div class="pl-price">
+                <div class="p-price">$980.00</div>
+              </div>
+              <div class="wbtn" style="position:static;margin-left:4px">♡</div>
+            </div>
+            <div class="plist-item" onclick="showPage('detail')"><img src="assets/assets/Image/tech/image 86.png"
+                alt="">
+              <div>
+                <div class="pl-title">HeadPhones - Grey</div>
+                <div class="pl-meta"><span class="p-stars" style="font-size:12px">★★★★<span style="color:#ddd">★</span>
+                    7.5</span><span>• 154 orders</span><span class="pl-free">• Free Shipping</span></div>
+                <div class="pl-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                  ex ea commodo consequat.</div><span class="pl-link">View details</span>
+              </div>
+              <div class="pl-price">
+                <div class="p-price">$880.00</div>
+              </div>
+              <div class="wbtn" style="position:static;margin-left:4px">♡</div>
+            </div>
+            <div class="plist-item" onclick="showPage('detail')"><img src="assets/assets/Image/tech/image 23.png"
+                alt="">
+              <div>
+                <div class="pl-title">Android Mobile Phone - Black</div>
+                <div class="pl-meta"><span class="p-stars" style="font-size:12px">★★★★<span style="color:#ddd">★</span>
+                    7.5</span><span>• 154 orders</span><span class="pl-free">• Free Shipping</span></div>
+                <div class="pl-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                  ex ea commodo consequat.</div><span class="pl-link">View details</span>
+              </div>
+              <div class="pl-price">
+                <div class="p-oldprice">$628.00</div>
+                <div class="p-price">$998.00</div>
+              </div>
+              <div class="wbtn" style="position:static;margin-left:4px">♡</div>
+            </div>
+            <div class="plist-item" onclick="showPage('detail')"><img src="assets/assets/Image/tech/image 34.png"
+                alt="">
+              <div>
+                <div class="pl-title">Macbook (Hight Quality) - Black</div>
+                <div class="pl-meta"><span class="p-stars" style="font-size:12px">★★★★<span style="color:#ddd">★</span>
+                    7.5</span><span>• 154 orders</span><span class="pl-free">• Free Shipping</span></div>
+                <div class="pl-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                  ex ea commodo consequat.</div><span class="pl-link">View details</span>
+              </div>
+              <div class="pl-price">
+                <div class="p-price">$1098.00</div>
+              </div>
+              <div class="wbtn" style="position:static;margin-left:4px">♡</div>
+            </div>
+            <div class="plist-item" onclick="showPage('detail')"><img src="assets/assets/Image/tech/image 33.png"
+                alt="">
+              <div>
+                <div class="pl-title">IPhone 12 pro - Red</div>
+                <div class="pl-meta"><span class="p-stars" style="font-size:12px">★★★★<span style="color:#ddd">★</span>
+                    7.5</span><span>• 154 orders</span><span class="pl-free">• Free Shipping</span></div>
+                <div class="pl-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                  ex ea commodo consequat.</div><span class="pl-link">View details</span>
+              </div>
+              <div class="pl-price">
+                <div class="p-price">$788.00</div>
+              </div>
+              <div class="wbtn" style="position:static;margin-left:4px">♡</div>
+            </div>
+          </div>
+          <div class="pagination">
+            <div class="pgshow">Show <select>
+                <option>10</option>
+                <option>20</option>
+              </select></div>
+            <div class="pgbtn">‹</div>
+            <div class="pgbtn on">1</div>
+            <div class="pgbtn">2</div>
+            <div class="pgbtn">3</div>
+            <div class="pgbtn">›</div>
+          </div>
+        </div>
+      </div>
+      <div class="newsletter" style="margin-top:20px">
+        <h3>Subscribe on our newsletter</h3>
+        <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+        <div class="nl-form"><input type="email" placeholder="✉ Email"><button>Subscribe</button></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <div class="logo" onclick="showPage('home')" style="margin-bottom:10px"><img
+              src="assets/assets/Layout/Brand/logo-colored.png" alt="Brand" style="height:30px"></div>
+          <p>Best information about the company gies here but now lorem ipsum is</p>
+          <div class="ft-socials">
+            <div class="ft-soc">f</div>
+            <div class="ft-soc">t</div>
+            <div class="ft-soc">in</div>
+            <div class="ft-soc">◉</div>
+            <div class="ft-soc">▶</div>
+          </div>
+        </div>
+        <div class="ft-col">
+          <h4>About</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Partnership</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Information</h4><a>Help Center</a><a>Money Refund</a><a>Shipping</a><a>Contact us</a>
+        </div>
+        <div class="ft-col">
+          <h4>For users</h4><a>Login</a><a>Register</a><a>Settings</a><a>My Orders</a>
+        </div>
+        <div class="ft-col">
+          <h4>Get app</h4>
+          <img class="one" src="assets/assets/Layout/Misc/market-button.png" alt="">
+          <img class="two" src="assets/assets/Layout/Misc/Group.png" alt="">
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2023 Ecommerce.</span>
+        <div style="display:flex;align-items:center;gap:6px"><img src="assets/assets/Layout1/Image/flags/US@2x.png"
+            alt="" style="height:13px"> English ▲</div>
+      </div>
+    </footer>
+
+  </div>
+  <div id="page-detail" class="page">
+    <div class="wrap">
+      <div class="breadcrumb"><span class="bc-link" onclick="showPage('home')">Home</span><span
+          class="bc-sep">›</span><span class="bc-link" onclick="showPage('clothing')">Clothings</span><span
+          class="bc-sep">›</span><span class="bc-link" onclick="showPage('clothing')">Men's wear</span><span
+          class="bc-sep">›</span> Summer clothing</div>
+
+      <div style="display:grid;grid-template-columns:1fr 220px;gap:20px">
+        <div>
+          <!-- MAIN DETAIL CARD -->
+          <div class="det-card">
+            <div class="det-grid">
+              <!-- Images -->
+              <div>
+                <div class="mainimg-box"><img id="mainImg" src="assets/assets/Layout/alibaba/Image/cloth/Bitmap.png"
+                    alt=""></div>
+                <div class="thumbs">
+                  <div class="thumb on" onclick="setImg(this,'assets/assets/Layout/alibaba/Image/cloth/2 1.png')"><img
+                      src="assets/assets/Layout/alibaba/Image/cloth/2 1.png" alt="" /></div>
+                  <div class="thumb" onclick="setImg(this,'assets/assets/Layout/alibaba/Image/cloth/Bitmap.png')"><img
+                      src="assets/assets/Layout/alibaba/Image/cloth/Bitmap.png" /></div>
+                  <div class="thumb" onclick="setImg(this,'assets/assets/Layout/alibaba/Image/cloth/Bitmap (2).png')">
+                    <img src="assets/assets/Layout/alibaba/Image/cloth/Bitmap (2).png" /></div>
+                  <div class="thumb" onclick="setImg(this,'assets/assets/Layout/alibaba/Image/cloth/image 24.png')"><img
+                      src="assets/assets/Layout/alibaba/Image/cloth/image 24.png" /></div>
+                  <div class="thumb" onclick="setImg(this,'assets/assets/Layout/alibaba/Image/cloth/image 26.png')"><img
+                      src="assets/assets/Layout/alibaba/Image/cloth/image 26.png" /></div>
+                  <div class="thumb" onclick="setImg(this,'assets/assets/Layout/alibaba/Image/cloth/image 30.png')"><img
+                      src="assets/assets/Layout/alibaba/Image/cloth/image 30.png" /></div>
+                </div>
+              </div>
+              <!-- Info -->
+              <div>
+                <div class="in-stock">✓ In stock</div>
+                <div class="det-title">Mens Long Sleeve T-shirt Cotton Base Layer Slim Muscle</div>
+                <div class="det-stars">
+                  <span style="color:#f5a623">★★★★★</span>
+                  <span style="font-weight:700;color:#f5a623">9.3</span>
+                  <span style="color:#999;cursor:pointer">□ 32 reviews</span>
+                  <span style="color:#999">⊙ 154 sold</span>
+                </div>
+
+                <div class="price-tiers">
+                  <div class="ptier">
+                    <div class="ptier-p">$98.00</div>
+                    <div class="ptier-q">50-100 pcs</div>
+                  </div>
+                  <div class="ptier">
+                    <div class="ptier-p">$90.00</div>
+                    <div class="ptier-q">100-700 pcs</div>
+                  </div>
+                  <div class="ptier">
+                    <div class="ptier-p">$78.00</div>
+                    <div class="ptier-q">700+ pcs</div>
+                  </div>
+                </div>
+                <div class="dattr"><span class="dattr-l">Price:</span><span>Negotiable</span></div>
+                <div class="dattr"><span class="dattr-l">Type:</span><span>Classic shoes</span></div>
+                <div class="dattr"><span class="dattr-l">Material:</span><span>Plastic material</span></div>
+                <div class="dattr"><span class="dattr-l">Design:</span><span>Modern nice</span></div>
+                <div class="dattr"><span class="dattr-l">Customization:</span><span>Customized logo and design custom
+                    packages</span></div>
+                <div class="dattr"><span class="dattr-l">Protection:</span><span>Refund Policy</span></div>
+                <div class="dattr"><span class="dattr-l">Warranty:</span><span>2 years full warranty</span></div>
+              </div>
+              <!-- Supplier -->
+              <div class="sup-box">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+                  <div class="sup-av">R</div>
+                  <div>
+                    <div class="sup-lbl">Supplier</div>
+                    <div class="sup-nm">Guanjoi Trading LLC</div>
+                  </div>
+                </div>
+                <div class="sup-row2"><img src="assets/assets/Layout1/Image/flags/DE@2x.png" alt="DE"> Germany, Berlin
+                </div>
+                <div class="sup-row2" style="color:#1a73e8">✓ Verified Seller</div>
+                <div class="sup-row2">🌐 Worldwide shipping</div>
+                <button class="btn-inq" onclick="addCurrentToCart('cart')">Send inquiry</button>
+                <button class="btn-sp">Seller's profile</button>
+                <button class="btn-sltr">♡ Save for later</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TABS + YOU MAY LIKE -->
+          <div style="display:grid;grid-template-columns:1fr 220px;gap:20px">
+            <div class="det-tabs">
+              <div class="tab-nav">
+                <div class="tab-btn on" onclick="switchTab(this,'tdesc')">Description</div>
+                <div class="tab-btn" onclick="switchTab(this,'trev')">Reviews</div>
+                <div class="tab-btn" onclick="switchTab(this,'tship')">Shipping</div>
+                <div class="tab-btn" onclick="switchTab(this,'tsell')">About seller</div>
+              </div>
+              <div id="tdesc" class="tab-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur.</p>
+                <p style="margin-top:10px">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                  nulla pariatur.</p>
+                <table class="specs-tbl">
+                  <tr>
+                    <td>Model</td>
+                    <td>#8786867</td>
+                  </tr>
+                  <tr>
+                    <td>Style</td>
+                    <td>Classic style</td>
+                  </tr>
+                  <tr>
+                    <td>Certificate</td>
+                    <td>ISO-898921212</td>
+                  </tr>
+                  <tr>
+                    <td>Size</td>
+                    <td>34mm x 450mm x 19mm</td>
+                  </tr>
+                  <tr>
+                    <td>Memory</td>
+                    <td>36GB RAM</td>
+                  </tr>
+                </table>
+                <div style="margin-top:12px">
+                  <div class="feat-li">Some great feature name here</div>
+                  <div class="feat-li">Lorem ipsum dolor sit amet, consectetur</div>
+                  <div class="feat-li">Duis aute irure dolor in reprehenderit</div>
+                  <div class="feat-li">Some great feature name here</div>
+                </div>
+              </div>
+              <div id="trev" class="tab-body" style="display:none">
+                <p>Customer reviews will appear here.</p>
+              </div>
+              <div id="tship" class="tab-body" style="display:none">
+                <p>Shipping information will appear here.</p>
+              </div>
+              <div id="tsell" class="tab-body" style="display:none">
+                <p>Seller information will appear here.</p>
+              </div>
+            </div>
+            <div class="ymal">
+              <h3>You may like</h3>
+              <div class="ymal-item" onclick="showPage('detail')"><img
+                  src="assets/assets/Layout/alibaba/Image/cloth/Bitmap.png" alt="">
+                <div>
+                  <div class="ym-name">Men T-Shirt Sets Elegant Formal</div>
+                  <div class="ym-price">$7.00 - $99.50</div>
+                </div>
+              </div>
+              <div class="ymal-item" onclick="showPage('detail')"><img
+                  src="assets/assets/Layout/alibaba/Image/cloth/Bitmap (2).png" alt="">
+                <div>
+                  <div class="ym-name">Men jean Shorts </div>
+                  <div class="ym-price">$7.00 - $99.50</div>
+                </div>
+              </div>
+              <div class="ymal-item" onclick="showPage('detail')"><img src="assets/assets/Image/tech/image 32.png"
+                  alt="">
+                <div>
+                  <div class="ym-name">Apple Watch Series Space Gray</div>
+                  <div class="ym-price">$7.00 - $99.50</div>
+                </div>
+              </div>
+              <div class="ymal-item" onclick="showPage('detail')"><img src="assets/assets/Image/tech/6.png" alt="">
+                <div>
+                  <div class="ym-name">GoPro Camera action-Black</div>
+                  <div class="ym-price">$7.00 - $99.50</div>
+                </div>
+              </div>
+              <div class="ymal-item" onclick="showPage('detail')"><img
+                  src="assets/assets/Layout/alibaba/Image/cloth/image 30.png" alt="">
+                <div>
+                  <div class="ym-name">New Summer Men's casual coat</div>
+                  <div class="ym-price">$7.00 - $99.50</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RELATED -->
+          <div class="scard" style="margin-top:20px">
+            <h2 style="font-size:16px;font-weight:700;margin-bottom:16px">Related products</h2>
+            <div class="rel-grid">
+              <div class="rel-card" onclick="showPage('detail')"><img src="assets/assets/Image/tech/image 85.png"
+                  alt="">
+                <div class="rel-nm"> Electric Kattle Original</div>
+                <div class="rel-pr">$32.00-$40.00</div>
+              </div>
+              <div class="rel-card" onclick="showPage('detail')"><img src="assets/assets/Image/tech/image 32.png"
+                  alt="">
+                <div class="rel-nm">Xiaomi Tablets</div>
+                <div class="rel-pr">$32.00-$40.00</div>
+              </div>
+              <div class="rel-card" onclick="showPage('detail')"><img src="assets/assets/Image/tech/image 29.png"
+                  alt="">
+                <div class="rel-nm">Gaming Headset</div>
+                <div class="rel-pr">$32.00-$40.00</div>
+              </div>
+              <div class="rel-card" onclick="showPage('detail')"><img
+                  src="assets/assets/Layout/alibaba/Image/cloth/image 30.png" alt="">
+                <div class="rel-nm">Men casual coat</div>
+                <div class="rel-pr">$32.00-$40.00</div>
+              </div>
+              <div class="rel-card" onclick="showPage('detail')"><img src="assets/assets/Image/tech/image 33.png"
+                  alt="">
+                <div class="rel-nm">Xiaomi Redmi 8 Original</div>
+                <div class="rel-pr">$32.00-$40.00</div>
+              </div>
+              <div class="rel-card" onclick="showPage('detail')"><img src="assets/assets/Image/interior/1.png" alt="">
+                <div class="rel-nm">Comfortable sofa Chair</div>
+                <div class="rel-pr">$32.00-$40.00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+
+      <div class="promo-banner">
+        <div>
+          <h2>Super discount on more than 100 USD</h2>
+          <p>Have you ever finally just write dummy info</p>
+        </div><button class="btn-shopnow" onclick="showPage('mobile')">Shop now</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <div class="logo" onclick="showPage('home')" style="margin-bottom:10px"><img
+              src="assets/assets/Layout/Brand/logo-colored.png" alt="Brand" style="height:30px"></div>
+          <p>Best information about the company gies here but now lorem ipsum is</p>
+          <div class="ft-socials">
+            <div class="ft-soc">f</div>
+            <div class="ft-soc">t</div>
+            <div class="ft-soc">in</div>
+            <div class="ft-soc">◉</div>
+            <div class="ft-soc">▶</div>
+          </div>
+        </div>
+        <div class="ft-col">
+          <h4>About</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Partnership</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Information</h4><a>Help Center</a><a>Money Refund</a><a>Shipping</a><a>Contact us</a>
+        </div>
+        <div class="ft-col">
+          <h4>For users</h4><a>Login</a><a>Register</a><a>Settings</a><a>My Orders</a>
+        </div>
+        <div class="ft-col">
+          <h4>Get app</h4>
+          <img class="one" src="assets/assets/Layout/Misc/market-button.png" alt="">
+          <img class="two" src="assets/assets/Layout/Misc/Group.png" alt="">
+        </div>
+        <div class="footer-bottom">
+          <span>© 2023 Ecommerce.</span>
+          <div style="display:flex;align-items:center;gap:6px"><img src="assets/assets/Layout1/Image/flags/US@2x.png"
+              alt="" style="height:13px"> English ▲</div>
+        </div>
+    </footer>
+
+  </div>
+  <div id="page-cart" class="page">
+    <div class="wrap">
+      <div style="font-size:20px;font-weight:800;margin-bottom:16px">My cart (3)</div>
+      <div class="cart-layout">
+        <div>
+          <div class="cart-box">
+            <div class="cart-item">
+              <img src="assets/assets/Layout/alibaba/Image/cloth/2 1.png" alt="">
+              <div>
+                <div class="ci-name">jacket in wool with multiple colors, for men and lady</div>
+                <div class="ci-meta">Size: medium, Color: blue, Material: Plastic</div>
+                <div class="ci-seller">Seller: Artel Market</div>
+                <div class="ci-acts"><button class="btn-rem">Remove</button><button class="btn-sfl">Save for
+                    later</button></div>
+              </div>
+              <div><select class="qty-sel">
+                  <option>Qty: 9</option>
+                  <option>Qty: 1</option>
+                  <option>Qty: 5</option>
+                </select></div>
+              <div class="ci-price">$78.99</div>
+            </div>
+            <div class="cart-item">
+              <img src="assets/assets/Layout/alibaba/Image/cloth/Bitmap (2).png" alt="">
+              <div>
+                <div class="ci-name">T-shirts with multiple colors, for men and lady</div>
+                <div class="ci-meta">Size: medium, Color: blue, Material: Plastic</div>
+                <div class="ci-seller">Seller: Best factory LLC</div>
+                <div class="ci-acts"><button class="btn-rem">Remove</button><button class="btn-sfl">Save for
+                    later</button></div>
+              </div>
+              <div><select class="qty-sel">
+                  <option>Qty: 3</option>
+                  <option>Qty: 1</option>
+                  <option>Qty: 5</option>
+                </select></div>
+              <div class="ci-price">$39.00</div>
+            </div>
+            <div class="cart-item">
+              <img src="assets/assets/Layout/alibaba/Image/cloth/Bitmap.png" alt="">
+              <div>
+                <div class="ci-name">Men's Shorts with multiple colors</div>
+                <div class="ci-meta">Size: medium, Color: blue, Material: Plastic</div>
+                <div class="ci-seller">Seller: Artel Market</div>
+                <div class="ci-acts"><button class="btn-rem">Remove</button><button class="btn-sfl">Save for
+                    later</button></div>
+              </div>
+              <div><select class="qty-sel">
+                  <option>Qty: 1</option>
+                  <option>Qty: 2</option>
+                  <option>Qty: 3</option>
+                </select></div>
+              <div class="ci-price">$170.50</div>
+            </div>
+            <div class="cart-footer">
+              <button class="btn-back" onclick="showPage('mobile')">← Back to shop</button>
+              <button class="btn-remall">Remove all</button>
+            </div>
+          </div>
+          <div class="trust-row">
+            <div class="trust-cell">
+              <div class="trust-icon">🔒</div><strong>Secure payment</strong><span>Have you ever finally just</span>
+            </div>
+            <div class="trust-cell">
+              <div class="trust-icon">💬</div><strong>Customer support</strong><span>Have you ever finally just</span>
+            </div>
+            <div class="trust-cell">
+              <div class="trust-icon">🚚</div><strong>Free delivery</strong><span>Have you ever finally just</span>
+            </div>
+          </div>
+          <div class="saved-section">
+            <h2>Saved for later</h2>
+            <div class="saved-grid">
+              <div class="saved-card"><img src="assets/assets/Image/tech/6.png" alt="">
+                <div class="saved-info">
+                  <div class="sv-price">$99.50</div>
+                  <div class="sv-name">GoPro HERO6 4K Action Camera - Black</div><button class="btn-mv">🛒 Move to
+                    cart</button>
+                </div>
+              </div>
+              <div class="saved-card"><img src="assets/assets/Image/tech/8.png" alt="">
+                <div class="saved-info">
+                  <div class="sv-price">$99.50</div>
+                  <div class="sv-name">Smart Watch - Black</div><button class="btn-mv">🛒 Move to cart</button>
+                </div>
+              </div>
+              <div class="saved-card"><img src="assets/assets/Image/tech/image 32.png" alt="">
+                <div class="saved-info">
+                  <div class="sv-price">$99.50</div>
+                  <div class="sv-name">Xiaomi Tablets - Black</div><button class="btn-mv">🛒 Move to cart</button>
+                </div>
+              </div>
+              <div class="saved-card"><img src="assets/assets/Image/tech/image 34.png" alt="">
+                <div class="saved-info">
+                  <div class="sv-price">$99.50</div>
+                  <div class="sv-name">Macbook of High Quality - Black</div><button class="btn-mv">🛒 Move to
+                    cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="summ-box">
+            <div class="coup-lbl">Have a coupon?</div>
+            <div class="coup-row"><input type="text" placeholder="Add coupon"><button class="btn-apcoup">Apply</button>
+            </div>
+            <div class="summ-row"><span>Subtotal:</span><span>$1403.97</span></div>
+            <div class="summ-row"><span>Discount:</span><span style="color:#e53935">- $60.00</span></div>
+            <div class="summ-row"><span>Tax:</span><span style="color:#f57c00">+ $14.00</span></div>
+            <div class="summ-tot"><span>Total:</span><span>$1357.97</span></div>
+            <button class="btn-checkout">Checkout</button>
+            <div class="pay-icons">
+              <div class="pay-ic" style="background:#016fd0;color:#fff">AMEX</div>
+              <div class="pay-ic" style="background:#eb001b;color:#fff">MC</div>
+              <div class="pay-ic" style="background:#253b80;color:#fff">PP</div>
+              <div class="pay-ic" style="background:#fff;border-color:#1a1f71;color:#1a1f71">VISA</div>
+              <div class="pay-ic" style="background:#000;color:#fff">⊘Pay</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="promo-banner">
+        <div>
+          <h2>Super discount on more than 100 USD</h2>
+          <p>Have you ever finally just write dummy info</p>
+        </div><button class="btn-shopnow" onclick="showPage('mobile')">Shop now</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <div class="logo" onclick="showPage('home')" style="margin-bottom:10px"><img
+              src="assets/assets/Layout/Brand/logo-colored.png" alt="Brand" style="height:30px"></div>
+          <p>Best information about the company gies here but now lorem ipsum is</p>
+          <div class="ft-socials">
+            <div class="ft-soc">f</div>
+            <div class="ft-soc">t</div>
+            <div class="ft-soc">in</div>
+            <div class="ft-soc">◉</div>
+            <div class="ft-soc">▶</div>
+          </div>
+        </div>
+        <div class="ft-col">
+          <h4>About</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Partnership</h4><a>About Us</a><a>Find store</a><a>Categories</a><a>Blogs</a>
+        </div>
+        <div class="ft-col">
+          <h4>Information</h4><a>Help Center</a><a>Money Refund</a><a>Shipping</a><a>Contact us</a>
+        </div>
+        <div class="ft-col">
+          <h4>For users</h4><a>Login</a><a>Register</a><a>Settings</a><a>My Orders</a>
+        </div>
+        <div class="ft-col">
+          <h4>Get app</h4>
+          <img class="one" src="assets/assets/Layout/Misc/market-button.png" alt="">
+          <img class="two" src="assets/assets/Layout/Misc/Group.png" alt="">
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2023 Ecommerce.</span>
+        <div style="display:flex;align-items:center;gap:6px"><img src="assets/assets/Layout1/Image/flags/US@2x.png"
+            alt="" style="height:13px"> English ▲</div>
+      </div>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
